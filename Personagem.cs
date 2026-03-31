@@ -4,14 +4,14 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace RPG
 {
-    public class Personagem
+    public class Personagem : IAtacar
     {
         public string Nome { get; set; }
         public double Vida { get; set; }  
         public double Ataque { get; set; }
         public double Defesa {get; set;}
 
-        public Personagem (string nome, double vida, double ataque, double defesa)
+        public Personagem(string nome, double vida, double ataque, double defesa)
         {
             Nome = nome;
             Vida = vida;
@@ -25,12 +25,12 @@ namespace RPG
 
             alvo.ReceberDano(dano);
         }
-        public void ReceberDano(int dano)
+        public void ReceberDano(double dano)
         {
             Vida -= dano;
         }
 
-        public void exiberStatus()
+        public void ExibirStatus()
         {
             Console.WriteLine("Nome: " + Nome + "\n" + 
                               "Vida: " + Vida + "\n" + 
